@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import com.kiran.entity.Student;
-import com.kiran.feignClient.AddressFeignClient;
+import com.kiran.feignClient.GenericFeignClient;
 import com.kiran.repository.StudentRepository;
 import com.kiran.requestResponse.AddressResponse;
 import com.kiran.requestResponse.StudentRequest;
@@ -23,7 +23,7 @@ public class StudentService {
 	WebClient webClient;
 	
 	@Autowired
-	AddressFeignClient addressFeignClient;
+	GenericFeignClient addressFeignClient;
 	
 	public StudentResponse createStudent(StudentRequest req) {
 		Student std = new Student();
