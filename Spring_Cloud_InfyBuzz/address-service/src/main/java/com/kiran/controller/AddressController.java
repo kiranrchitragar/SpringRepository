@@ -16,9 +16,14 @@ import com.kiran.service.AddressService;
 
 @RestController
 @RequestMapping("/api/address")
+@RefreshScope // to enable this actuator
 public class AddressController {
 
 	Logger log = LoggerFactory.getLogger(AddressController.class);
+	
+	
+	@Value("${address.test}")
+	private String test;
 	
 	@Autowired
 	AddressService addressService;
@@ -33,6 +38,12 @@ public class AddressController {
 		 return addressService.getById(id);
 	}
 	
+	
+
+	@GetMapping("test")
+	public String test() {
+		 return test;
+	}
 	
 	
 }
